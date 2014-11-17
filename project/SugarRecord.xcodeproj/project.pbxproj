@@ -92,6 +92,7 @@
 		3DC8D5A119D76DBD00F2368B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC8D5A019D76DBD00F2368B /* Security.framework */; };
 		3DC8D5A319D76DC200F2368B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC8D5A219D76DC200F2368B /* MobileCoreServices.framework */; };
 		3DF86BA519ED4A6200C88FD4 /* iCloudCDStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF86BA419ED4A6200C88FD4 /* iCloudCDStackTests.swift */; };
+		F439CD473F58A8306AB50D4B /* libPods-restkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C37281135F2AC5AE7DEB3CD2 /* libPods-restkit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -168,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D0EB5C51A16029A0073E21D /* CoreData.framework in Frameworks */,
+				F439CD473F58A8306AB50D4B /* libPods-restkit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,10 +505,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D0EB52B1A1600E70073E21D /* Build configuration list for PBXNativeTarget "SRCoreDataRestKit" */;
 			buildPhases = (
+				46CCD714D1029911819A8A26 /* Check Pods Manifest.lock */,
 				3D0EB50F1A1600E70073E21D /* Sources */,
 				3D0EB5101A1600E70073E21D /* Frameworks */,
 				3D0EB5111A1600E70073E21D /* Headers */,
 				3D0EB5121A1600E70073E21D /* Resources */,
+				4F70D392C22DA6E24C827643 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -649,6 +653,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		46CCD714D1029911819A8A26 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4F70D392C22DA6E24C827643 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-restkit/Pods-restkit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DA8F0964FF304630923ADC40 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -795,6 +829,7 @@
 /* Begin XCBuildConfiguration section */
 		3D0EB5271A1600E70073E21D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D0EB5D01A1607EC0073E21D /* Pods-restkit.debug.xcconfig */;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 1.0.2;
 				DEFINES_MODULE = YES;
@@ -815,6 +850,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SugarRecord/SugarRecordTests-Bridging-Header.h";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
